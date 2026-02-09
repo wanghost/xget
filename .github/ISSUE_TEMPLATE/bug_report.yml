@@ -1,0 +1,167 @@
+name: 🐛 bug 报告
+description: 报告一个问题或错误
+title: "[Bug]: "
+labels: ["bug", "需要分类"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你花时间填写这个 bug 报告！请尽可能详细地描述问题，这将帮助我们更快地定位和修复问题。
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: 前置检查
+      description: 在提交 Issue 之前，请确认以下事项
+      options:
+        - label: 我已经搜索过现有的 Issues，确认这不是重复问题
+          required: true
+        - label: 我已经查看过文档和 README
+          required: true
+        - label: 我使用的是最新版本的 Xget
+          required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述
+      description: 清晰简洁地描述遇到的问题
+      placeholder: 描述你遇到了什么问题...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 重现步骤
+      description: 提供重现问题的详细步骤
+      placeholder: |
+        1. 访问 '...'
+        2. 执行命令 '...'
+        3. 观察到错误 '...'
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+      description: 描述你期望发生什么
+      placeholder: 应该...
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+      description: 描述实际发生了什么
+      placeholder: 但实际上...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: 受影响的平台
+      description: 选择问题相关的平台（可多选）
+      multiple: true
+      options:
+        - GitHub
+        - GitLab
+        - npm
+        - PyPI
+        - Docker Hub
+        - crates.io
+        - Maven Central
+        - Homebrew
+        - Jenkins
+        - OpenAI API
+        - Anthropic API
+        - 其他 AI 推理 API
+        - 不确定/不适用
+    validations:
+      required: true
+
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: 请求类型
+      description: 选择问题相关的请求类型
+      options:
+        - Git 克隆/拉取
+        - Git LFS
+        - Docker 镜像拉取
+        - 包下载 (npm/PyPI/Maven 等)
+        - AI API 推理请求
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 环境信息
+      description: 提供你的环境详细信息
+      value: |
+        - 操作系统: [例如 Ubuntu 22.04, macOS 14, Windows 11]
+        - 客户端工具: [例如 git 2.40, docker 24.0, npm 10.2]
+        - 浏览器 (如适用): [例如 Chrome 120, Firefox 121]
+        - Xget 部署方式: [Cloudflare Workers / 自托管 / 其他]
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 错误日志
+      description: |
+        提供相关的错误日志、堆栈跟踪或控制台输出
+        提示: 你可以在代码块中粘贴日志以保持格式
+      render: shell
+      placeholder: |
+        粘贴错误日志...
+
+  - type: textarea
+    id: curl
+    attributes:
+      label: cURL 命令或请求示例
+      description: 如果可能，提供能重现问题的 cURL 命令或请求示例（请移除敏感信息）
+      render: shell
+      placeholder: |
+        curl -X GET "https://your-xget-instance/gh/microsoft/vscode" -H "User-Agent: git/2.40"
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: 附加信息
+      description: |
+        提供任何其他有助于理解问题的上下文、截图或信息
+        提示: 你可以拖拽图片到这里上传
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: 严重程度
+      description: 这个问题对你的影响有多大？
+      options:
+        - 严重 - 核心功能完全无法使用
+        - 高 - 重要功能受阻
+        - 中 - 功能可用但有明显问题
+        - 低 - 轻微问题或不便
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: 贡献意愿
+      description: 你是否愿意提交 PR 来修复这个问题？
+      options:
+        - label: 我愿意提交 PR 来修复这个问题
